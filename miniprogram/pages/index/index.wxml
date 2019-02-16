@@ -1,0 +1,8 @@
+<!-- index.wxml -->
+
+<view class="container">
+<!-- 这里希望做成图片轮播 -->
+  <view class="slide">
+    <image src="../../images/index-blue-bird.png" mode="aspectFit"></image>
+  </view>
+</view>
