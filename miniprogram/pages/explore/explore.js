@@ -131,5 +131,19 @@ Page({
         currentTab: event.target.dataset.current
       })
     }
+  },
+  onApplication: function(e){
+    var temp = e.currentTarget.dataset.index
+    console.log(temp)
+    wx.navigateTo({
+      url: '../application/application?project='+temp._id+'&proName='+temp.proName+'&receiver='+temp._openid,
+    })
+  },
+  onInvitation: function(e){
+    var temp = e.currentTarget.dataset.index
+    console.log(temp)
+    wx.navigateTo({
+      url: '../invitation/invitation?user='+temp._openid+'&avatarUrl='+temp.avatarUrl+'&major='+temp.major+'&nickName='+temp.nickName,
+    })
   }
 })

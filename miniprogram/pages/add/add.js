@@ -1,4 +1,5 @@
 // pages/add/add.js
+const app = getApp()
 Page({
 
   /**
@@ -33,6 +34,7 @@ Page({
     })
   },
   onsubmit: function(){// 暂时只有项目名称不能为空
+    var that = this
     if(this.data.proName==''){
       wx.showModal({
         title: '提示',
@@ -48,10 +50,23 @@ Page({
           state: this.data.state[this.data.stateIndex],
           description: this.data.description
         },
-        success: function(){
-          wx.navigateTo({
-            url: '../msgSuccess/msgSuccess',
+        success: function(res){
+          db.collection('relation').add({
+            data: {
+              position: 'starter',
+              proName: that.data.proName,
+              userId: getApp().globalData.openid,
+            },
+            success: function (res) {
+              wx.navigateTo({
+                url: '../msgSuccess/msgSuccess',
+              })
+            },
+            fail: function (res) {
+              console.log("fail")
+            }
           })
+
         },
         fail: function(){
           wx.navigateTo({

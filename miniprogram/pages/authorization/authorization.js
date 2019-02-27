@@ -10,18 +10,28 @@ Page({
   },
   onLoad: function () {
     var that = this;
+
+    wx.cloud.callFunction({
+      name: "login",
+      data:{},
+      success: function(res){
+        app.globalData.openid = res.result.openid
+      }
+    })
     //查看是否授权
     wx.getSetting({
       success: function (res) {
-        if (res.authSetting['scope.userInfo']) {
-          wx.getUserInfo({
-            success: function (res) {
-              wx.switchTab({
-                url: '/pages/index/index',
+
+            if (res.authSetting['scope.userInfo']) {
+              wx.getUserInfo({
+                success: function (res) {
+                  
+                  wx.switchTab({
+                    url: '/pages/index/index',
+                  })
+                }
               })
             }
-          })
-        }
       }
     })
   },

@@ -18,8 +18,9 @@
                 <view class="weui-footer__links">
                     <navigator url="" class="weui-footer__link">底部链接文本</navigator>
                 </view>
-                <view class="weui-footer__text">Copyright © 2008-2016 weui.io</view>
+                <view class="weui-footer__text">Copyright © 2019-2020 ISpace</view>
             </view>
         </view>
+        
     </view>
 </view>
